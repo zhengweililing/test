@@ -1,4 +1,3 @@
-import axios from 'axios'
 
 // 这是一个示例服务，用于处理与AI API的通信
 // 在实际应用中，你需要替换为真实的AI API端点和密钥
@@ -19,24 +18,25 @@ export const sendMessageToAI = async (message: string): Promise<string> => {
     //return `这是对"${message}"的AI回复。在实际应用中，这里应该是从AI API获取的真实响应。`;
 
     // 实际API调用示例：
-
-    const response = await axios.post(`${API_BASE_URL}`, {
+    const response = await fetch(API_BASE_URL, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         query: `
-            query AskDeepseek($prompt: String!) {
-              deepseekResponse: askDeepseek(prompt: $prompt)
-            }
-          `,
+          query AskDeepseek($prompt: String!) {
+            deepseekResponse: askDeepseek(prompt: $prompt)
+          }
+        `,
         variables: {
-          prompt: message, // 替换为实际内容
-        },
-      }),
-    })
-
-    return response.data.message
+          prompt: message // 替换为实际内容
+        }
+      })
+    });
+    
+    const result = await response.json();
+    return result.data.deepseekResponse;
   } catch (error) {
     console.error('Error sending message to AI:', error)
     throw new Error('无法获取AI响应，请稍后再试')
