@@ -21,7 +21,6 @@ export const sendMessageToAI = async (message: string): Promise<string> => {
     // 实际API调用示例：
 
     const response = await axios.post(`${API_BASE_URL}`, {
-      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
