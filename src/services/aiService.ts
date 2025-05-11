@@ -14,7 +14,7 @@ interface AIResponseData {
 }
 
 // AI服务的基本URL
-const API_BASE_URL = 'https://api.example.com/ai';
+const API_BASE_URL = 'https://my-app.awei883882.workers.dev/';
 
 // 发送消息到AI API并获取响应
 export const sendMessageToAI = async (message: string): Promise<string> => {
@@ -26,10 +26,10 @@ export const sendMessageToAI = async (message: string): Promise<string> => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     // 返回模拟响应
-    return `这是对"${message}"的AI回复。在实际应用中，这里应该是从AI API获取的真实响应。`;
+    //return `这是对"${message}"的AI回复。在实际应用中，这里应该是从AI API获取的真实响应。`;
     
     // 实际API调用示例：
-    /*
+    
     const payload: AIRequestPayload = { message };
     
     const response = await axios.post<AIResponseData>(
@@ -38,13 +38,13 @@ export const sendMessageToAI = async (message: string): Promise<string> => {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${YOUR_API_KEY}` // 替换为你的API密钥
+          'Authorization': `Bearer ${'sk-3fdd42ec8d904836aeb48ff8cd353787'}` // 替换为你的API密钥
         }
       }
     );
     
     return response.data.message;
-    */
+   
   } catch (error) {
     console.error('Error sending message to AI:', error);
     throw new Error('无法获取AI响应，请稍后再试');
