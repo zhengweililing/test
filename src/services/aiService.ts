@@ -33,7 +33,7 @@ export const sendMessageToAI = async (message: string): Promise<string> => {
     const payload: AIRequestPayload = { message };
     
     const response = await axios.post<AIResponseData>(
-      `${API_BASE_URL}/chat`,
+      `${API_BASE_URL}`,
       payload,
       {
         headers: {
