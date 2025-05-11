@@ -4,7 +4,7 @@ import axios from 'axios'
 // 在实际应用中，你需要替换为真实的AI API端点和密钥
 
 // AI服务的基本URL
-const API_BASE_URL = 'https://my-app.awei883882.workers.dev//graphql'
+const API_BASE_URL = 'https://my-app.awei883882.workers.dev/graphql'
 
 // 发送消息到AI API并获取响应
 export const sendMessageToAI = async (message: string): Promise<string> => {
