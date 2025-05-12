@@ -140,7 +140,6 @@ const ChatInterface = () => {
               <div className="message-avatar">
                 {message.sender === 'user' ? <FiUser /> : <RiRobot2Line />}
               </div>
-              // 修改message-text部分的渲染
               <div className="message-content">
                 <div className="message-text">
                   {message.sender === 'ai' ? (
