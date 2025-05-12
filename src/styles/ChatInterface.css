@@ -231,3 +231,34 @@
     max-width: 90%;
   }
 }
+
+
+/* 添加在文件末尾 */
+.react-markdown {
+  line-height: 1.6;
+}
+
+.react-markdown p {
+  margin: 0.5em 0;
+}
+
+.react-markdown pre {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.react-markdown code {
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.react-markdown blockquote {
+  border-left: 3px solid #ddd;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #777;
+}

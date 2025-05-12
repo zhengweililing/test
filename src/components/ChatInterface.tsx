@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { FiSend, FiUser, FiTrash2 } from 'react-icons/fi';
 import { RiRobot2Line } from 'react-icons/ri';
+import ReactMarkdown from 'react-markdown';
 import '../styles/ChatInterface.css';
 import { sendMessageToAI } from '../services/aiService';
 import { saveMessages, getMessages, clearMessages } from '../services/storageService';
@@ -139,8 +140,15 @@ const ChatInterface = () => {
               <div className="message-avatar">
                 {message.sender === 'user' ? <FiUser /> : <RiRobot2Line />}
               </div>
+              // 修改message-text部分的渲染
               <div className="message-content">
-                <div className="message-text">{message.text}</div>
+                <div className="message-text">
+                  {message.sender === 'ai' ? (
+                    <ReactMarkdown>{message.text}</ReactMarkdown>
+                  ) : (
+                    message.text
+                  )}
+                </div>
                 <div className="message-time">{formatTime(message.timestamp)}</div>
               </div>
             </div>
